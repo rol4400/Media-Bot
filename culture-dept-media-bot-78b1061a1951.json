@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "culture-dept-media-bot",
+  "private_key_id": "78b1061a19519cb3a0ea25c2047eb0e92f7dbb56",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDEZCkedeAGva4C\nM5+qY5Z9drSRz6y7Q8/Ofv3sR4RbtR8BJT68JcN2xPx9LikviEdzJaOFcsLDRnYg\nWqca8cTbzhW2GLLfcTVC8KEIdi9qnOPhgCvyUuevd1lvUxUb5rT06kMujrCEBv2G\nZQti+KvDrTI6YK3Kb84I8ncdxQmJhWURttmHUTWK2bXU9aPwKWEfEOc/tYkMYv3H\n6UKpgUp7dulnNxLgcYdFq3/q7rZ1WfYHEEqK1+BZ45EzK4SPD1q1n6LrbQ+FZT7q\nbPQji2q4/sbDT6orkq6i2hrMHxhqKl42KvazNERihKVShuOP8/wlH/NE2v/k9/hG\nY2o4L1WVAgMBAAECggEANY2WhN7h0xTAMYuAO4dijx3iiWxXDs2kCgwpE9hAqH1Q\nUhCk9ctabLW0oDIJOxPvX9/golAz+enp5lKyBK/u3X1qADjl9fY57uINF3Ca53iW\nz3QTB8ZBtWBXO/ss42na6HpFDZoNWkNJuO8u1rM2q2o8Kx0X5v7r8RalErIbMqt5\ngUNh3Ba+pit5Kg+fxwU1O6ljJb0RmtHajI6RrjbpSlM7bExb+FWsK6Ch2S7mqdpK\nC0S4DlHj/Ux4GGJM1D9fMN5QDC1IXdB51Nf/gq920AfydYyGP+T2N2d44FgIm0bd\nCwqsto/Zi8YKqeVfzju2df7C1vTvj56roGKbecp5tQKBgQD4Z1GNPIaKgPcJpFEx\nAks6cO1V8k3VwkzvMZWyG8VphXV7Xhmt9rAU2MKcDXfW6TKO9SEtxZqQlHoaupPx\niD7pYUiDY4zOu+Bh88PFGCDptWkZZQKTTUBnBN0uSnJc82Uur6PuxfPxaruuHEwg\nITbnYmHFyBRo3YeJGBT/aVZfRwKBgQDKZab2Jl6BMmT7NnYYjv6JORTYJsSMoM1s\nrnZQPO7ePGBSS4cxphNgyYXeo5/CNrE89hNV2sVDv/ZBpJtWtgTdkJkP0tytq1ML\n2CMRsot5A3zjXbbLqCREQocvAVqNFwBtxLrrUQtvYSousWifI5GJr0IDD6bpBEjO\n4nePbldqQwKBgH1bHoOpBLiGxqReAP87ih1O+ebCpdb2+/5FxqagbyqGSDhez5TE\nBi4vCV7ZSR3yhyovuHOx4gOOemRcveZI/H6oMoDjzx5RH7Yu3x/qwklO3GANYpRV\niueyQ7Blr3sK9Yfu6UrJKQcu9tGxxBT+zgdM1cyK4QneqdRci9QtI4JnAoGAFMGi\nAsJilLtXUc//Anu/rND2y0gGhimDh67IoWfuU0o70pS+U6AlgpqIKRH8s00qlgbi\nar6Z1l3cYlUAPT9Ddnl6yP2l9gWI6cELr6fw18M8zpBwy6f9uCZeeLqZz7hZKeiw\nBqv0EUMUsV8uTIu4RDd9/JRhWKpA0T62ZjY5rsMCgYB+A8trxYoRe+D8OtQDATgH\nDFOrN+auuR4ZlZCSYPCOtrVBcYA+yfNb7+Tn6+1LUnwTFlme62f+SyDCQpIiN7m+\nI4b83k4RI5z8jNZG1qA6pqwxTfHZa+Jl/UVIsdDkWz5+/H7gZjYVwbjUc3ewqnZ5\nfSLPDcC/rmmgyVwGeU6ALg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "main-614@culture-dept-media-bot.iam.gserviceaccount.com",
+  "client_id": "101131383322575636270",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/main-614%40culture-dept-media-bot.iam.gserviceaccount.com"
+}
