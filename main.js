@@ -274,9 +274,7 @@ async function getSubDirectory(folder_name) {
     return subdir_folder;
 }
 
-/*****************************************************
- * Drive API Configuration
- ******************************************************/
+// Upload a file to the given location
 async function uploadFile(filename, stream, parent_dir) {
     // Obtain user credentials to use for the request
     const auth = new google.auth.GoogleAuth({
