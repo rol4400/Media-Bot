@@ -18,8 +18,6 @@
   },
   "homepage": "https://github.com/rol4400/Culture-Dept-Media-Bot#readme",
   "dependencies": {
-    "@google-cloud/local-auth": "^2.1.0",
-    "@googleapis/docs": "^1.0.1",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "googleapis": "^105.0.0",
