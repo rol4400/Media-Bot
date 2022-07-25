@@ -11,7 +11,7 @@ require('dotenv').config();
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // Upload folder IDs
-folderId = "1PIQOC0fIIzWbveVCHHKwBscimVNVfO60";
+folderId = process.env.DRIVE_ROOT;
 
 // Debug bool
 const DEBUG = false;
@@ -174,7 +174,7 @@ async function findOrCreateFolder(folderName, parent) {
 
     // Obtain user credentials to use for the request
     const auth = new google.auth.GoogleAuth({
-        keyFile: 'culture-dept-media-bot-78b1061a1951.json',
+        keyFile: process.env.GOOGLE_KEYFILE,
         scopes: 'https://www.googleapis.com/auth/drive',
     });
 
@@ -222,7 +222,7 @@ async function createFolder(folderName, parent_dir) {
 
     // Obtain user credentials to use for the request
     const auth = new google.auth.GoogleAuth({
-        keyFile: 'culture-dept-media-bot-78b1061a1951.json',
+        keyFile: process.env.GOOGLE_KEYFILE,
         scopes: 'https://www.googleapis.com/auth/drive',
     });
 
@@ -278,7 +278,7 @@ async function getSubDirectory(folder_name) {
 async function uploadFile(filename, stream, parent_dir) {
     // Obtain user credentials to use for the request
     const auth = new google.auth.GoogleAuth({
-        keyFile: 'culture-dept-media-bot-78b1061a1951.json',
+        keyFile: process.env.GOOGLE_KEYFILE,
         scopes: 'https://www.googleapis.com/auth/drive',
     });
 
