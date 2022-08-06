@@ -309,8 +309,8 @@ async function uploadFile(filename, stream, parent_dir) {
 bot.launch();
 
 var http = require('http');
-var server_port = 8089 || process.env.PORT || 80;
-var server_host = "127.0.0.1" || '0.0.0.0';
+var server_port =  process.env.PORT;
+var server_host = '0.0.0.0';
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end('\n');
