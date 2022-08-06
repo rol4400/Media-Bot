@@ -307,3 +307,9 @@ async function uploadFile(filename, stream, parent_dir) {
 
 // Launch the bot
 bot.launch();
+
+var server_port = 8089 || process.env.PORT || 80;
+var server_host = "127.0.0.1" || '0.0.0.0';
+server.listen(server_port, server_host, function() {
+    console.log('Listening on port %d', server_port);
+});
