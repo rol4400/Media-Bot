@@ -308,8 +308,10 @@ async function uploadFile(filename, stream, parent_dir) {
 // Launch the bot
 bot.launch();
 
+var http = require('http');
 var server_port = 8089 || process.env.PORT || 80;
 var server_host = "127.0.0.1" || '0.0.0.0';
-server.listen(server_port, server_host, function() {
-    console.log('Listening on port %d', server_port);
-});
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('\n');
+}).listen(server_port, server_host);
