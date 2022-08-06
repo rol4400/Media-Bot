@@ -32,7 +32,7 @@ bot.on('photo', async(ctx) => {
     var date_ob = new Date(ts);
     var day = date_ob.getDate();
     var month = date_ob.getMonth() + 1;
-    var date = "39" + month + day;
+    var date = "39-" + month + "-" + day;
 
     // Get the subdirectory ID
     var parent_dir = await getSubDirectory("Photos");
@@ -43,7 +43,7 @@ bot.on('photo', async(ctx) => {
             return new Promise((resolve, reject) => {
 
                 // Generate the file name and stream
-                var filename = ctx.update.message.from.first_name + " // " + ctx.update.message.chat.title + " // " + date + ".jpg";
+                var filename = date + " (" + ctx.update.message.from.first_name + " @ " + ctx.update.message.chat.title + " )" + ".jpg";
                 var stream = response.data;
 
                 // Upload the file to google drive
@@ -69,7 +69,7 @@ bot.on('video', async (ctx) => {
     var date_ob = new Date(ts);
     var day = date_ob.getDate();
     var month = date_ob.getMonth() + 1;
-    var date = "39" + month + day;
+    var date = "39-" + month + "-" + day;
 
     // Get the subdirectory ID
     var parent_dir = await getSubDirectory("Videos");
@@ -80,7 +80,7 @@ bot.on('video', async (ctx) => {
             return new Promise((resolve, reject) => {
 
                 // Generate the file name and stream
-                var fileName = ctx.update.message.from.first_name + " // " + ctx.update.message.chat.title + " // " + date + "." + extension;
+                var fileName = date + " (" + ctx.update.message.from.first_name + " @ " + ctx.update.message.chat.title + " )" + "." + extension;
                 var stream = response.data;
 
                 // Upload the file to google drive
@@ -114,7 +114,7 @@ bot.on('document', async (ctx) => {
     var date_ob = new Date(ts);
     var day = date_ob.getDate();
     var month = date_ob.getMonth() + 1;
-    var date = "39" + month + day;
+    var date = "39-" + month + "-" + day;
 
     // Use the file ID to call an axios http request to telegram's api to obtain the image
     ctx.telegram.getFileLink(fileId).then(downloadUrl => {
@@ -122,7 +122,7 @@ bot.on('document', async (ctx) => {
             return new Promise((resolve, reject) => {
 
                 // Generate the file name and stream
-                var fileName = ctx.update.message.from.first_name + " // " + ctx.update.message.chat.title + " // " + date + "." + extension;
+                var fileName = date + " (" + ctx.update.message.from.first_name + " @ " + ctx.update.message.chat.title + " )" + "." + extension;
                 var stream = response.data;
 
                 // Upload the file to google drive
@@ -144,7 +144,7 @@ bot.on('video_note', async (ctx) => {
     var date_ob = new Date(ts);
     var day = date_ob.getDate();
     var month = date_ob.getMonth() + 1;
-    var date = "39" + month + day;
+    var date = "39-" + month + "-" + day;
 
     // Get the subdirectory ID
     var parent_dir = await getSubDirectory("Bubble Messages");
@@ -155,7 +155,7 @@ bot.on('video_note', async (ctx) => {
             return new Promise((resolve, reject) => {
 
                 // Generate the file name and stream
-                var fileName = ctx.update.message.from.first_name + " // " + ctx.update.message.chat.title + " // " + date + ".mp4";
+                var fileName = date + " (" + ctx.update.message.from.first_name + " @ " + ctx.update.message.chat.title + " )" + ".mp4";
                 var stream = response.data;
 
                 // Upload the file to google drive
