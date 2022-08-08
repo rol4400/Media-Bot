@@ -14,7 +14,9 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 folderId = process.env.DRIVE_ROOT;
 
 // Debug bool
-const DEBUG = false;
+const DEBUG = !(process.env.NODE_ENV === "production");
+console.log(DEBUG);
+console.log(process.env.NODE_ENV);
 
 /*****************************************************
  * Bot Event Hooks
@@ -24,8 +26,11 @@ const DEBUG = false;
 bot.on('photo', async(ctx) => {
     if (DEBUG) ctx.telegram.sendMessage(ctx.message.chat.id, `Photo submitted`);
 
-    const files = "";
-    try { files = ctx.update.message.photo; } catch (err) { return; };
+    var files = "";
+    try { files = ctx.update.message.photo; } catch (err) {
+        if (DEBUG) console.log(err);
+        return;
+    };
     var fileId = files[1].file_id; // Telegram stores various different sizes of the photos. "1" is a large one
 
     // Get the current date information
@@ -53,14 +58,19 @@ bot.on('photo', async(ctx) => {
                 });
             }).catch();
         })
-    } catch (err) { }
+    } catch (err) {
+        if (DEBUG) console.log(err);
+    };
 });
 
 bot.on('video', async (ctx) => {
     if (DEBUG) ctx.telegram.sendMessage(ctx.message.chat.id, `Video submitted`);
 
-    const files = "";
-    try { files = ctx.update.message.video; } catch (err) { return; };
+    var files = "";
+    try { files = ctx.update.message.video; } catch (err) {
+        if (DEBUG) console.log(err);
+        return;
+    };
 
     var fileId = files.file_id; // Telegram stores various different sizes of the photos. "1" is a large one
     var fileName = files.file_name;
@@ -94,14 +104,19 @@ bot.on('video', async (ctx) => {
                 });
             }).catch();
         })
-    } catch (err) { }
+    } catch (err) {
+        if (DEBUG) console.log(err);
+    };
 });
 
 bot.on('document', async (ctx) => {
     if (DEBUG) ctx.telegram.sendMessage(ctx.message.chat.id, `Document submitted`);
 
-    const files = "";
-    try { files = ctx.update.message.document; } catch (err) { return; };
+    var files = "";
+    try { files = ctx.update.message.document; } catch (err) {
+        if (DEBUG) console.log(err);
+        return;
+    };
     
     var fileId = files.file_id; // Telegram stores various different sizes of the photos. "1" is a large one
     var fileName = files.file_name;
@@ -140,14 +155,19 @@ bot.on('document', async (ctx) => {
                 });
             }).catch();
         })
-    } catch (err) { }
+    } catch (err) {
+        if (DEBUG) console.log(err);
+    };
 });
 
 bot.on('video_note', async (ctx) => {
     if (DEBUG) ctx.telegram.sendMessage(ctx.message.chat.id, `Bubble submitted`);
 
-    const files = "";
-    try { files = ctx.update.message.video_note; } catch (err) { return; };
+    var files = "";
+    try { files = ctx.update.message.video_note; } catch (err) {
+        if (DEBUG) console.log(err);
+        return;
+    };
     var fileId = files.file_id; // Telegram stores various different sizes of the photos. "1" is a large one
 
     // Get the current date information
@@ -175,7 +195,9 @@ bot.on('video_note', async (ctx) => {
                 });
             })
         })
-    } catch (err) { }
+    } catch (err) {
+        if (DEBUG) console.log(err);
+    };
 });
 
 /*****************************************************
