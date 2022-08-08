@@ -24,7 +24,8 @@ const DEBUG = false;
 bot.on('photo', async(ctx) => {
     if (DEBUG) ctx.telegram.sendMessage(ctx.message.chat.id, `Photo submitted`);
 
-    try { const files = ctx.update.message.photo; } catch (err) { return; };
+    const files = "";
+    try { files = ctx.update.message.photo; } catch (err) { return; };
     var fileId = files[1].file_id; // Telegram stores various different sizes of the photos. "1" is a large one
 
     // Get the current date information
@@ -58,7 +59,8 @@ bot.on('photo', async(ctx) => {
 bot.on('video', async (ctx) => {
     if (DEBUG) ctx.telegram.sendMessage(ctx.message.chat.id, `Video submitted`);
 
-    try { const files = ctx.update.message.video; } catch (err) { return; };
+    const files = "";
+    try { files = ctx.update.message.video; } catch (err) { return; };
 
     var fileId = files.file_id; // Telegram stores various different sizes of the photos. "1" is a large one
     var fileName = files.file_name;
@@ -98,7 +100,8 @@ bot.on('video', async (ctx) => {
 bot.on('document', async (ctx) => {
     if (DEBUG) ctx.telegram.sendMessage(ctx.message.chat.id, `Document submitted`);
 
-    try { const files = ctx.update.message.document; } catch (err) { return; };
+    const files = "";
+    try { files = ctx.update.message.document; } catch (err) { return; };
     
     var fileId = files.file_id; // Telegram stores various different sizes of the photos. "1" is a large one
     var fileName = files.file_name;
@@ -143,7 +146,8 @@ bot.on('document', async (ctx) => {
 bot.on('video_note', async (ctx) => {
     if (DEBUG) ctx.telegram.sendMessage(ctx.message.chat.id, `Bubble submitted`);
 
-    try { const files = ctx.update.message.video_note; } catch (err) { return; };
+    const files = "";
+    try { files = ctx.update.message.video_note; } catch (err) { return; };
     var fileId = files.file_id; // Telegram stores various different sizes of the photos. "1" is a large one
 
     // Get the current date information
