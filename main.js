@@ -14,9 +14,11 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 folderId = process.env.DRIVE_ROOT;
 
 // Debug bool
-const DEBUG = !(process.env.NODE_ENV === "production");
+var DEBUG = !(process.env.NODE_ENV === "production");
 console.log(DEBUG);
 console.log(process.env.NODE_ENV);
+
+DEBUG = false;
 
 /*****************************************************
  * Bot Event Hooks
