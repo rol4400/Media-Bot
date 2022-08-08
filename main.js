@@ -24,7 +24,7 @@ const DEBUG = false;
 bot.on('photo', async(ctx) => {
     if (DEBUG) ctx.telegram.sendMessage(ctx.message.chat.id, `Photo submitted`);
 
-    const files = ctx.update.message.photo;
+    try { const files = ctx.update.message.photo; } catch (err) { return; };
     var fileId = files[1].file_id; // Telegram stores various different sizes of the photos. "1" is a large one
 
     // Get the current date information
@@ -38,25 +38,28 @@ bot.on('photo', async(ctx) => {
     var parent_dir = await getSubDirectory("Photos");
 
     // Use the file ID to call an axios http request to telegram's api to obtain the image
-    ctx.telegram.getFileLink(fileId).then(downloadUrl => {
-        axios({ url: downloadUrl.toString(), responseType: 'stream' }).then(response => {
-            return new Promise((resolve, reject) => {
+    try {
+        ctx.telegram.getFileLink(fileId).then(downloadUrl => {
+            axios({ url: downloadUrl.toString(), responseType: 'stream' }).then(response => {
+                return new Promise((resolve, reject) => {
 
-                // Generate the file name and stream
-                var filename = date + " (" + ctx.update.message.from.first_name + " @ " + ctx.update.message.chat.title + " )" + ".jpg";
-                var stream = response.data;
+                    // Generate the file name and stream
+                    var filename = date + " (" + ctx.update.message.from.first_name + " @ " + ctx.update.message.chat.title + ")" + ".jpg";
+                    var stream = response.data;
 
-                // Upload the file to google drive
-                uploadFile(filename, stream, parent_dir);
-            });
+                    // Upload the file to google drive
+                    uploadFile(filename, stream, parent_dir);
+                });
+            }).catch();
         })
-    })
+    } catch (err) { }
 });
 
 bot.on('video', async (ctx) => {
     if (DEBUG) ctx.telegram.sendMessage(ctx.message.chat.id, `Video submitted`);
 
-    const files = ctx.update.message.video;
+    try { const files = ctx.update.message.video; } catch (err) { return; };
+
     var fileId = files.file_id; // Telegram stores various different sizes of the photos. "1" is a large one
     var fileName = files.file_name;
     var mimeType = files.mime_type;
@@ -75,25 +78,28 @@ bot.on('video', async (ctx) => {
     var parent_dir = await getSubDirectory("Videos");
 
     // Use the file ID to call an axios http request to telegram's api to obtain the image
-    ctx.telegram.getFileLink(fileId).then(downloadUrl => {
-        axios({ url: downloadUrl.toString(), responseType: 'stream' }).then(response => {
-            return new Promise((resolve, reject) => {
+    try {
+        ctx.telegram.getFileLink(fileId).then(downloadUrl => {
+            axios({ url: downloadUrl.toString(), responseType: 'stream' }).then(response => {
+                return new Promise((resolve, reject) => {
 
-                // Generate the file name and stream
-                var fileName = date + " (" + ctx.update.message.from.first_name + " @ " + ctx.update.message.chat.title + " )" + "." + extension;
-                var stream = response.data;
+                    // Generate the file name and stream
+                    var fileName = date + " (" + ctx.update.message.from.first_name + " @ " + ctx.update.message.chat.title + ")" + "." + extension;
+                    var stream = response.data;
 
-                // Upload the file to google drive
-                uploadFile(fileName, stream, parent_dir);
-            });
+                    // Upload the file to google drive
+                    uploadFile(fileName, stream, parent_dir);
+                });
+            }).catch();
         })
-    })
+    } catch (err) { }
 });
 
 bot.on('document', async (ctx) => {
     if (DEBUG) ctx.telegram.sendMessage(ctx.message.chat.id, `Document submitted`);
 
-    const files = ctx.update.message.document;
+    try { const files = ctx.update.message.document; } catch (err) { return; };
+    
     var fileId = files.file_id; // Telegram stores various different sizes of the photos. "1" is a large one
     var fileName = files.file_name;
     var mimeType = files.mime_type;
@@ -117,26 +123,27 @@ bot.on('document', async (ctx) => {
     var date = "39-" + month + "-" + day;
 
     // Use the file ID to call an axios http request to telegram's api to obtain the image
-    ctx.telegram.getFileLink(fileId).then(downloadUrl => {
-        axios({ url: downloadUrl.toString(), responseType: 'stream' }).then(response => {
-            return new Promise((resolve, reject) => {
+    try {
+        ctx.telegram.getFileLink(fileId).then(downloadUrl => {
+            axios({ url: downloadUrl.toString(), responseType: 'stream' }).then(response => {
+                return new Promise((resolve, reject) => {
 
-                // Generate the file name and stream
-                var fileName = date + " (" + ctx.update.message.from.first_name + " @ " + ctx.update.message.chat.title + " )" + "." + extension;
-                var stream = response.data;
+                    // Generate the file name and stream
+                    var fileName = date + " (" + ctx.update.message.from.first_name + " @ " + ctx.update.message.chat.title + ")" + "." + extension;
+                    var stream = response.data;
 
-                // Upload the file to google drive
-                uploadFile(fileName, stream, parent_dir);
-            });
+                    // Upload the file to google drive
+                    uploadFile(fileName, stream, parent_dir);
+                });
+            }).catch();
         })
-    })
-
+    } catch (err) { }
 });
 
 bot.on('video_note', async (ctx) => {
     if (DEBUG) ctx.telegram.sendMessage(ctx.message.chat.id, `Bubble submitted`);
 
-    const files = ctx.update.message.video_note;
+    try { const files = ctx.update.message.video_note; } catch (err) { return; };
     var fileId = files.file_id; // Telegram stores various different sizes of the photos. "1" is a large one
 
     // Get the current date information
@@ -150,19 +157,21 @@ bot.on('video_note', async (ctx) => {
     var parent_dir = await getSubDirectory("Bubble Messages");
 
     // Use the file ID to call an axios http request to telegram's api to obtain the image
-    ctx.telegram.getFileLink(fileId).then(downloadUrl => {
-        axios({ url: downloadUrl.toString(), responseType: 'stream' }).then(response => {
-            return new Promise((resolve, reject) => {
+    try {
+        ctx.telegram.getFileLink(fileId).then(downloadUrl => {
+            axios({ url: downloadUrl.toString(), responseType: 'stream' }).then(response => {
+                return new Promise((resolve, reject) => {
 
-                // Generate the file name and stream
-                var fileName = date + " (" + ctx.update.message.from.first_name + " @ " + ctx.update.message.chat.title + " )" + ".mp4";
-                var stream = response.data;
+                    // Generate the file name and stream
+                    var fileName = date + " (" + ctx.update.message.from.first_name + " @ " + ctx.update.message.chat.title + ")" + ".mp4";
+                    var stream = response.data;
 
-                // Upload the file to google drive
-                uploadFile(fileName, stream, parent_dir);
-            });
+                    // Upload the file to google drive
+                    uploadFile(fileName, stream, parent_dir);
+                });
+            })
         })
-    })
+    } catch (err) { }
 });
 
 /*****************************************************
